@@ -42,7 +42,7 @@ function Capture() {
   return null;
 }
 
-export const App = () => {
+const App = () => {
   return (
     <>
       <Canvas
@@ -76,6 +76,8 @@ export const App = () => {
     </>
   );
 };
+
+export default App;
 
 function Clouds() {
   return (
