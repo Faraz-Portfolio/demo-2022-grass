@@ -5,14 +5,12 @@ import {
   OrbitControls,
   Sky,
 } from "@react-three/drei";
-import { Canvas, useThree } from "@react-three/fiber";
-import { button, useControls } from "leva";
+import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import { MathUtils } from "three";
 import { Butterfly } from "./Butterfly";
 import { Grass } from "./Grass";
 import { Particles } from "./Particles";
-import Tag from "./Tag";
 
 const rand = new Array(15).fill(0).map(() => ({
   position: [
@@ -22,25 +20,6 @@ const rand = new Array(15).fill(0).map(() => ({
   ],
   scale: MathUtils.randFloat(0.5, 1),
 }));
-
-function Capture() {
-  const gl = useThree((state) => state.gl);
-  useControls({
-    screenshot: button(() => {
-      const link = document.createElement("a");
-      link.setAttribute("download", "canvas.png");
-      link.setAttribute(
-        "href",
-        gl.domElement
-          .toDataURL("image/png")
-          .replace("image/png", "image/octet-stream")
-      );
-      link.click();
-    }),
-  });
-
-  return null;
-}
 
 const App = () => {
   return (
@@ -57,11 +36,10 @@ const App = () => {
             <Butterfly key={i} {...e} />
           ))}
 
-          <Clouds />
+          {/* <Clouds /> */}
           <Sky />
         </Suspense>
         <Particles />
-        {/* <Capture /> */}
 
         <OrbitControls
           enableZoom={false}
@@ -69,10 +47,8 @@ const App = () => {
           autoRotate
           autoRotateSpeed={0.8}
         />
-        {/* <OrbitControls makeDefault /> */}
         <CameraShake maxRoll={0.2} maxPitch={0.2} maxYaw={0.2} />
       </Canvas>
-      <Tag />
     </>
   );
 };
