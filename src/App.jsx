@@ -1,12 +1,10 @@
 import {
   CameraShake,
-  Cloud,
   Environment,
   OrbitControls,
   Sky,
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
 import { MathUtils } from "three";
 import { Butterfly } from "./Butterfly";
 import { Grass } from "./Grass";
@@ -30,23 +28,16 @@ const App = () => {
       >
         <Environment preset="sunset" />
 
-        <Suspense fallback={null}>
-          <Grass />
-          {rand.map((e, i) => (
-            <Butterfly key={i} {...e} />
-          ))}
+        <Grass />
 
-          {/* <Clouds /> */}
-          <Sky />
-        </Suspense>
+        {rand.map((e, i) => (
+          <Butterfly key={i} {...e} />
+        ))}
+
+        <Sky />
         <Particles />
 
-        <OrbitControls
-          enableZoom={false}
-          makeDefault
-          autoRotate
-          autoRotateSpeed={0.8}
-        />
+        <OrbitControls makeDefault autoRotate autoRotateSpeed={0.8} />
         <CameraShake maxRoll={0.2} maxPitch={0.2} maxYaw={0.2} />
       </Canvas>
     </>
@@ -54,16 +45,3 @@ const App = () => {
 };
 
 export default App;
-
-function Clouds() {
-  return (
-    <group>
-      <Cloud position={[-10, -6, -10]} speed={0.2} opacity={0.4} />
-      <Cloud position={[10, 6, -15]} speed={0.2} opacity={0.25} />
-      <Cloud position={[0, 10, 0]} speed={0.2} opacity={0.2} />
-      <Cloud position={[0, -10, 0]} speed={0.2} opacity={0.2} />
-      <Cloud position={[-10, -6, 15]} speed={0.2} opacity={0.3} />
-      <Cloud position={[10, 6, 10]} speed={0.2} opacity={0.25} />
-    </group>
-  );
-}
