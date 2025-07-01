@@ -1,8 +1,7 @@
-# React + Vite
+# Grassy Blob
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+View Live: https://farazzshaikh.com/demos/demo-2022-grass
 
-Currently, two official plugins are available:
+[2025-06-22 16-04-25.webm](https://github.com/user-attachments/assets/d002b8a1-1ec0-4dc1-8e7c-21c4a736a187)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+My take on WebGL grass. Was created when ThreeJS Grass rendering was in vogue. 
