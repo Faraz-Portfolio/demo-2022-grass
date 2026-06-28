@@ -5,12 +5,12 @@ import { MathUtils, Vector2 } from "three";
 import { FBM } from "three-noise";
 import * as SkeletonUtils from "three/examples/jsm/utils/SkeletonUtils";
 
+const baseUrl = import.meta.env.BASE_URL;
+
 const vec = new Vector2();
 export function Butterfly(props) {
   const group = useRef();
-  const { scene, animations } = useGLTF(
-    "/demo-2022-grass/models/butterfly.glb"
-  );
+  const { scene, animations } = useGLTF(baseUrl + "models/butterfly.glb");
   const cloneScene = useMemo(() => SkeletonUtils.clone(scene), [scene]);
   const { actions } = useAnimations(animations, group);
   const fbm = useMemo(() => new FBM({ seed: Math.random() }), []);

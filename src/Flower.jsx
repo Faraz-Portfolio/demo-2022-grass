@@ -1,10 +1,12 @@
 import { useGLTF, useTexture } from "@react-three/drei";
 import { forwardRef } from "react";
 
+const baseUrl = import.meta.env.BASE_URL;
+
 export const Flower = forwardRef((props, ref) => {
-  const { nodes } = useGLTF("/demo-2022-grass/models/flower.glb");
-  const map = useTexture("/demo-2022-grass/textures/color.jpg");
-  const ao = useTexture("/demo-2022-grass/textures/ao.jpg");
+  const { nodes } = useGLTF(baseUrl + "models/flower.glb");
+  const map = useTexture(baseUrl + "textures/color.jpg");
+  const ao = useTexture(baseUrl + "textures/ao.jpg");
 
   return (
     <group>
